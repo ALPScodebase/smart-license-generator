@@ -1,0 +1,105 @@
+{
+  "licenseId": "LIC-2025-356",
+  "name": "Smartphone Components License - Camera & GPS",
+  "currentVersion": 1,
+  "status": "proposed",
+  "createdAt": "2025-10-01T13:34:17.356Z",
+  "lastModified": "2025-10-01T13:35:54.706Z",
+  "parties": {
+    "licensor": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
+    "licensee": "0x8ba1f109551bD432803012645Aac136c4c4c4c4c",
+    "territory": "Global"
+  },
+  "versions": [
+    {
+      "versionNumber": 1,
+      "status": "proposed",
+      "createdAt": "2025-10-01T13:34:17.356Z",
+      "createdBy": "creator",
+      "comment": "Initial smartphone components license with camera, GPS, sensor suite, and advanced custom calculation rules. This version includes comprehensive royalty structures for camera and GPS usage.",
+      "data": {
+        "duration": "3Y 0M 0D",
+        "ips": "Proprietary smartphone component integration technology including advanced camera sensor algorithms, GPS positioning optimization, accelerometer calibration, gyroscope stabilization, and biometric sensor processing. This intellectual property covers hardware-software integration protocols, power management systems, and real-time data processing algorithms for mobile device components.",
+        "rules": [
+          {
+            "id": "rb01",
+            "name": "Camera Usage Royalty",
+            "validityStart": "2025-01-01",
+            "validityEnd": "2026-12-31",
+            "evaluationInterval": "1M 0D",
+            "royaltyBase": [
+              {
+                "id": "dep01",
+                "oracleAddress": "0x1234567890123456789012345678901234567890",
+                "propertyName": "getCameraActivations",
+                "displayName": "Camera Activations per Month",
+                "intellectualProperty": "PAT-001 - Camera Activation Technology"
+              },
+              {
+                "id": "dep02",
+                "oracleAddress": "0x2345678901234567890123456789012345678901",
+                "propertyName": "getPhotoCount",
+                "displayName": "Photos Taken",
+                "intellectualProperty": "PAT-002 - Photo Processing Algorithm"
+              }
+            ],
+            "royaltyRate": {
+              "type": "lumpsum",
+              "value": "50.00",
+              "customInputs": [],
+              "stepStructure": {
+                "steps": []
+              }
+            }
+          },
+          {
+            "id": "rb02",
+            "name": "GPS Navigation Royalty",
+            "validityStart": "2025-01-01",
+            "validityEnd": "2026-12-31",
+            "evaluationInterval": "1M 0D",
+            "royaltyBase": [
+              {
+                "id": "oracle-gps-001",
+                "oracleAddress": "0x3456789012345678901234567890123456789012",
+                "propertyName": "getGPSDistance",
+                "displayName": "GPS Navigation Distance (km)",
+                "intellectualProperty": "PAT-003 - GPS Navigation Optimization"
+              }
+            ],
+            "royaltyRate": {
+              "type": "step",
+              "stepStructure": {
+                "xAxis": "GPS Navigation Distance (km)",
+                "steps": [
+                  {
+                    "id": 1,
+                    "threshold": 100,
+                    "rate": 0.02,
+                    "description": "First 100km: 2% royalty"
+                  },
+                  {
+                    "id": 2,
+                    "threshold": 500,
+                    "rate": 0.05,
+                    "description": "100-500km: 5% royalty"
+                  },
+                  {
+                    "id": 3,
+                    "threshold": 1000,
+                    "rate": 0.08,
+                    "description": "500-1000km: 8% royalty"
+                  }
+                ],
+                "infiniteValue": "0.10"
+              },
+              "customInputs": []
+            }
+          }
+        ]
+      },
+      "feedback": null,
+      "lastModified": "2025-10-01T13:35:54.706Z"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "name": "All rule types",
+  "licensor": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6",
+  "licensee": "0x8ba1f109551bD432803012645Aac136c4c4c4c4c",
+  "territory": "Worldwide",
+  "duration": "2Y 0M 0D",
+  "ips": "Test IP",
+  "rules": [
+    {
+      "id": 1730000000001,
+      "name": "Lumpsum with floor",
+      "validityStart": "2025-01-01",
+      "validityEnd": "2026-12-31",
+      "evaluationInterval": { "duration": "1M 0D" },
+      "royaltyBase": [],
+      "royaltyRate": {
+        "type": "lumpsum", "lumpsumValue": "10", "proportionalValue": "", "proportionalRB": "",
+        "customFunc": "sum", "customInputs": [],
+        "stepStructure": { "xAxis": "", "steps": [], "infiniteValue": "" },
+        "min": "15", "max": ""
+      }
+    },
+    {
+      "id": 1730000000002,
+      "name": "Proportional capped",
+      "validityStart": "2025-01-01",
+      "validityEnd": "2026-12-31",
+      "evaluationInterval": { "duration": "1M 0D" },
+      "royaltyBase": [
+        { "id": 11, "oracleAddress": "0x1111111111111111111111111111111111111111", "propertyName": "getUnits", "displayName": "RB01", "intellectualProperty": "PAT-A" }
+      ],
+      "royaltyRate": {
+        "type": "proportional", "lumpsumValue": "", "proportionalValue": "0.5", "proportionalRB": "RB01",
+        "customFunc": "sum", "customInputs": [],
+        "stepStructure": { "xAxis": "", "steps": [], "infiniteValue": "" },
+        "min": "", "max": "100"
+      }
+    },
+    {
+      "id": 1730000000003,
+      "name": "Proportional with time steps",
+      "validityStart": "2025-01-01",
+      "validityEnd": "2026-12-31",
+      "evaluationInterval": { "duration": "1M 0D" },
+      "royaltyBase": [
+        { "id": 21, "oracleAddress": "0x2222222222222222222222222222222222222222", "propertyName": "getUnits", "displayName": "RB01", "intellectualProperty": "" }
+      ],
+      "royaltyRate": {
+        "type": "proportional", "lumpsumValue": "", "proportionalValue": "", "proportionalRB": "RB01",
+        "customFunc": "sum", "customInputs": [],
+        "stepStructure": {
+          "xAxis": "time",
+          "steps": [ { "id": 1, "threshold": 90, "rate": 1 }, { "id": 2, "threshold": 360, "rate": 2 } ],
+          "infiniteValue": "3"
+        },
+        "min": "", "max": ""
+      }
+    },
+    {
+      "id": 1730000000004,
+      "name": "Lumpsum by tier",
+      "validityStart": "2025-01-01",
+      "validityEnd": "2026-12-31",
+      "evaluationInterval": { "duration": "1M 0D" },
+      "royaltyBase": [
+        { "id": 31, "oracleAddress": "0x3333333333333333333333333333333333333333", "propertyName": "getTier", "displayName": "Tier usage", "intellectualProperty": "" }
+      ],
+      "royaltyRate": {
+        "type": "lumpsum", "lumpsumValue": "", "proportionalValue": "", "proportionalRB": "",
+        "customFunc": "sum", "customInputs": [],
+        "stepStructure": {
+          "xAxis": "Tier usage",
+          "steps": [ { "id": 1, "threshold": 10, "rate": 1 }, { "id": 2, "threshold": 100, "rate": 5 } ],
+          "infiniteValue": "20"
+        },
+        "min": "", "max": ""
+      }
+    },
+    {
+      "id": 1730000000005,
+      "name": "Custom formula",
+      "validityStart": "2025-01-01",
+      "validityEnd": "2026-12-31",
+      "evaluationInterval": { "duration": "1M 0D" },
+      "royaltyBase": [
+        { "id": 41, "oracleAddress": "0x4444444444444444444444444444444444444444", "propertyName": "getCust", "displayName": "RB01", "intellectualProperty": "" }
+      ],
+      "royaltyRate": {
+        "type": "custom", "lumpsumValue": "", "proportionalValue": "", "proportionalRB": "",
+        "customFunc": "sum",
+        "customInputs": [
+          { "id": 1, "type": "constant", "value": "1", "func": "sum", "rb": "", "inputs": [] },
+          { "id": 2, "type": "func", "value": "", "func": "multiply", "rb": "", "inputs": [
+            { "id": 3, "type": "rb", "value": "", "func": "sum", "rb": "RB01", "inputs": [] },
+            { "id": 4, "type": "constant", "value": "0.1", "func": "sum", "rb": "", "inputs": [] }
+          ] }
+        ],
+        "stepStructure": { "xAxis": "", "steps": [], "infiniteValue": "" },
+        "min": "", "max": ""
+      }
+    }
+  ]
+}
